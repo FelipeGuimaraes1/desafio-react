@@ -70,8 +70,9 @@ export const Order = styled.li`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 20px;
   width: 342px;
-  height: 58px;
+  height: auto;
   padding: 15px;
   margin-top: 2px;
   margin-bottom: 40px;
@@ -79,6 +80,11 @@ export const Order = styled.li`
   background: rgba(255, 255, 255, 0.25);
   border: none;
   font-size: 18px;
+
+  .first-par {
+    display: flex;
+    flex-direction: column;
+  }
 
   button {
     background: none;
