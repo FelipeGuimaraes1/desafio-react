@@ -19,21 +19,14 @@ const App = () => {
   const inputClient = useRef();
 
   async function addNewOrder() {
-    const data = await axios.post("http//localhost:3000/order", {
+    const { data: newOrder } = await axios.post("http://localhost:3000/order", {
       order: inputOrder.current.value,
       clientName: inputClient.current.value,
     });
 
-    console.log(data);
+    console.log(newOrder);
 
-    // setOrders([
-    //   ...orders,
-    //   {
-    //     id: Math.random(),
-    //     order: inputOrder.current.value,
-    //     client: inputClient.current.value,
-    //   },
-    // ]);
+    setOrders([...orders, newOrder]);
   }
 
   function deleteOrder(orderId) {
@@ -60,7 +53,7 @@ const App = () => {
                 <p>{`Pedido: ${order.order}`}</p>
               </div>
               <div className="sec-par">
-                <p>{`Cliente: ${order.client}`}</p>
+                <p>{`Cliente: ${order.clientName}`}</p>
               </div>
               <button onClick={() => deleteOrder(order.id)}>
                 <img src={Trash} alt="lata de lixo" />
